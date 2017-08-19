@@ -1,0 +1,7 @@
+Just the basic functionality is required.
+ 
+a. 2 pages are required.
+b. Working tabs are required, shown in screenshot. Font family should be „Verdana“.
+c. Write front end logic (validation, tab switches and routing) using  Angular or Vue.jS or React or Jquery
+d. (additional bonus) Write Selenium test for testing logic
+e. Commit code into public Github or Bitbucket and send link
