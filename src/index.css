@@ -4,10 +4,84 @@ body {
   font-family: sans-serif;
 }
 
+:root {
+  --btn-bg-color: rgb(2, 86, 161);
+  --btn-bg-color-hover: rgb(0, 66, 141);
+  --btn-shadow-color: rgb(0, 66, 127);
+}
+
 .text-center {
   text-align: center;
 }
 
 .text-left {
   text-align: left;
+}
+
+/* Style the tab */
+div.tabs {
+  background-color: transparent;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/* Style the buttons inside the tab */
+div.tabs button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  transition: 0.1s;
+  box-shadow: none;
+  padding: 0.75rem 1.5rem;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 0.75rem 6rem;
+  transition: 0.1s;
+  border: none;
+}
+
+button.btn-default {
+  background-color: var(--btn-bg-color);
+  color: white;
+  box-shadow: 0 0.15rem 0 var(--btn-shadow-color), 0 0.25rem 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+button.btn-default:active {
+  transform: translateY(0.15rem);
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+button.btn-default:hover {
+  background-color: var(--btn-bg-color-hover);
+}
+
+div.tabs button.active {
+  color: var(--btn-bg-color);
+  background-color: white;
+}
+
+div.tabs button.inactive {
+  color: white;
+  background-color: var(--btn-bg-color);
+}
+
+div.tabs button.inactive:hover {
+  background-color: rgb(0, 66, 141);
+}
+
+div.tabs :not(:first-child) {
+  margin-left: 0.15rem;
+}
+
+div.tabs button {
+  border-radius: 0.25rem 0.25rem 0 0;
 }

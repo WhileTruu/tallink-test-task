@@ -24,9 +24,9 @@ class Payments extends Component {
     const creditcardTabIsActive = history.location.pathname.includes('creditcard');
 
     return (
-      <div className="tallink-test-task-payments-page">
-        <div className="tallink-test-task-payments">
-          <div className="tabs">
+      <div className="ttt-payments-page">
+        <div className="ttt-payments">
+          <div className="tabs clearfix">
             <button
               className={`tab-link ${onlineBanksTabIsActive ? 'active' : 'inactive'}`}
               onClick={() => history.replace(`${match.url}/onlinebanks`)}
@@ -40,7 +40,7 @@ class Payments extends Component {
               {strings.creditCard}
             </button>
           </div>
-          <div className="tallink-test-task-payment-methods">
+          <div className="ttt-payment-methods">
             <Switch>
               <Route path={`${match.url}/creditcard`} component={CreditCardForm} />
               <Route path={`${match.url}/onlinebanks`}>

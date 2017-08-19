@@ -11,7 +11,6 @@ export function getOnlineBankInformation() {
     api
       .getOnlineBankInformation()
       .then(response => {
-        console.log(response);
         dispatch({ type: GET_ONLINE_BANK_INFORMATION_SUCCESS, banks: response.banks });
       })
       .catch(error => dispatch({ type: GET_ONLINE_BANK_INFORMATION_ERROR, error }));

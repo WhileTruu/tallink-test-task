@@ -1,53 +1,13 @@
-/* Style the tab */
-div.tabs {
-  // overflow: hidden;
-  background-color: transparent;
-  text-align: left;
-}
-
-/* Style the buttons inside the tab */
-div.tabs button {
-  background-color: inherit;
-  // float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-div.tabs button.active {
-  color: rgb(2, 86, 161);
-  background-color: white;
-}
-
-div.tabs button.inactive {
-  color: white;
-  background-color: rgb(2, 86, 161);
-}
-
-div.tabs button.inactive:hover {
-  background-color: rgb(0, 66, 141);
-}
-
-div.tabs :not(:first-child) {
-  margin-left: 0.15rem;
-}
-
-div.tabs button {
-  border-radius: 0.25rem 0.25rem 0 0;
-}
-
-.tallink-test-task-payments-page {
+.ttt-payments-page {
   background-color: rgb(2, 106, 177);
   flex: 1;
 }
 
-.tallink-test-task-payments {
+.ttt-payments {
   margin: 1rem;
 }
 
-.tallink-test-task-payment-methods {
+.ttt-payment-methods {
   padding: 1rem;
   background-color: white;
   border-radius: 0 0.25rem 0.25rem 0.25rem;

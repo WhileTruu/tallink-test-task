@@ -23,7 +23,9 @@ export default ({ banks }) =>
           )}
       </div>
       <div className="text-center">
-        <button type="submit">Pay</button>
+        <button className="btn-default" type="submit">
+          Pay
+        </button>
       </div>
     </form>
   </div>;
