@@ -20,14 +20,15 @@ const CardNumberInput = () =>
     />
   </div>;
 
-const CardExpiresInput = () =>
-  <div className="" style={{ width: '50%', boxSizing: 'border-box', display: 'inline-block' }}>
+export const CardExpiresInput = ({ changeExpiry, expiry }) =>
+  <div className="ttt-card-expiry-input-container">
     <input
-      style={{ width: '100%', boxSizing: 'border-box' }}
       tabIndex="1"
-      className="bottom left"
+      className="bottom left ttt-card-expiry-input"
       id="cc-exp"
       type="tel"
+      value={expiry || ''}
+      onChange={event => changeExpiry(event.target.value)}
       autoCorrect="off"
       spellCheck="off"
       autoCapitalize="off"
@@ -36,11 +37,10 @@ const CardExpiresInput = () =>
   </div>;
 
 export const CardCVCInput = ({ changeCVC, CVC }) =>
-  <div className="" style={{ width: '50%', boxSizing: 'border-box', display: 'inline-block' }}>
+  <div className="ttt-card-cvc-input-container">
     <input
-      style={{ width: '100%', boxSizing: 'border-box' }}
       tabIndex="1"
-      className="bottom right"
+      className="bottom right ttt-card-cvc-input"
       id="cc-csc"
       type="tel"
       value={CVC || ''}
@@ -54,14 +54,14 @@ export const CardCVCInput = ({ changeCVC, CVC }) =>
     />
   </div>;
 
-export const CreditcardForm = ({ changeCVC, CVC }) =>
+export const CreditcardForm = ({ changeCVC, CVC, changeExpiry, expiry }) =>
   <div>
     <div className="content">
       <div className="">
         <div className="">
           <div className="form-group">
             <CardNumberInput />
-            <CardExpiresInput />
+            <CardExpiresInput changeExpiry={changeExpiry} expiry={expiry} />
             <CardCVCInput changeCVC={changeCVC} CVC={CVC} />
           </div>
         </div>
@@ -76,13 +76,15 @@ export const CreditcardForm = ({ changeCVC, CVC }) =>
   </div>;
 
 const mapStoreToProps = store => ({
-  CVC: store.creditcardForm.CVC
+  CVC: store.creditcardForm.CVC,
+  expiry: store.creditcardForm.expiry
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      changeCVC: actions.changeCVC
+      changeCVC: actions.changeCVC,
+      changeExpiry: actions.changeExpiry
     },
     dispatch
   );
