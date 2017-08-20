@@ -9,7 +9,7 @@ import './CreditcardForm.css';
 const CardNumberInput = () =>
   <div className="">
     <input
-      className="top"
+      className="border-radius top"
       style={{ width: '100%', boxSizing: 'border-box' }}
       tabIndex="1"
       id="card_number"
@@ -24,7 +24,7 @@ export const CardExpiresInput = ({ changeExpiry, expiry }) =>
   <div className="ttt-card-expiry-input-container">
     <input
       tabIndex="1"
-      className="bottom left ttt-card-expiry-input"
+      className="border-radius bottom left ttt-card-expiry-input"
       id="cc-exp"
       type="tel"
       value={expiry || ''}
@@ -40,7 +40,7 @@ export const CardCVCInput = ({ changeCVC, CVC }) =>
   <div className="ttt-card-cvc-input-container">
     <input
       tabIndex="1"
-      className="bottom right ttt-card-cvc-input"
+      className="border-radius bottom right ttt-card-cvc-input"
       id="cc-csc"
       type="tel"
       value={CVC || ''}

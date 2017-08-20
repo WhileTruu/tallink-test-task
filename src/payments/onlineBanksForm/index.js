@@ -2,7 +2,7 @@ import React from 'react';
 
 import './OnlineBanksForm.css';
 
-export default ({ banks }) =>
+export default ({ banks, pay }) =>
   <div className="ttt-online-banks-form text-left">
     <form>
       <div className="ttt-online-banks">
@@ -23,7 +23,14 @@ export default ({ banks }) =>
           )}
       </div>
       <div className="text-center">
-        <button className="btn-default" type="submit">
+        <button
+          className="btn-default"
+          type="submit"
+          onClick={event => {
+            event.preventDefault();
+            pay();
+          }}
+        >
           Pay
         </button>
       </div>

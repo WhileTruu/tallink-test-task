@@ -10,7 +10,7 @@ import './App.css';
 
 const Home = ({ match }) =>
   <div>
-    <p className="tallink-test-task-intro">Welcome to the Tallink test task</p>
+    <p className="ttt-intro">Welcome to the Tallink test task</p>
     <button>payments</button>
     <Link to={`${match.url}payment`}> payments </Link>
   </div>;
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="tallink-test-task">
+        <div className="ttt">
           <Header />
           <Switch>
             <Route path="/payment" component={Payments} />

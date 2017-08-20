@@ -1,4 +1,5 @@
-.tallink-test-task-header {
+.ttt-header {
+  z-index: 1;
   background-color: white;
   padding: 0.25rem;
   color: rgb(0, 71, 140);

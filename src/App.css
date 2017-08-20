@@ -1,10 +1,10 @@
-.tallink-test-task {
+.ttt {
   text-align: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.tallink-test-task-intro {
+.ttt-intro {
   font-size: large;
 }
