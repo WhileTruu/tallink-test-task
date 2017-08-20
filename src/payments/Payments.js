@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import CreditCardForm from './creditCardForm';
+import CreditcardForm from './creditcardForm';
 import OnlineBanksForm from './onlineBanksForm';
 import { getOnlineBankInformation } from './actions';
 
@@ -25,7 +25,7 @@ class Payments extends Component {
 
     return (
       <div className="ttt-payments-page">
-        <div className="ttt-payments">
+        <div className="ttt-payments content-column">
           <div className="tabs clearfix">
             <button
               className={`tab-link ${onlineBanksTabIsActive ? 'active' : 'inactive'}`}
@@ -42,7 +42,7 @@ class Payments extends Component {
           </div>
           <div className="ttt-payment-methods">
             <Switch>
-              <Route path={`${match.url}/creditcard`} component={CreditCardForm} />
+              <Route path={`${match.url}/creditcard`} component={CreditcardForm} />
               <Route path={`${match.url}/onlinebanks`}>
                 <OnlineBanksForm banks={this.props.banks} />
               </Route>

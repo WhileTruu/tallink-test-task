@@ -5,10 +5,10 @@ import './OnlineBanksForm.css';
 export default ({ banks }) =>
   <div className="ttt-online-banks-form text-left">
     <form>
-      <div>
+      <div className="ttt-online-banks">
         {banks &&
           banks.map((bank, index) =>
-            <div key={bank.name}>
+            <div className="form-group" key={bank.name}>
               <input
                 className="ttt-online-banks-form radio-button"
                 type="radio"

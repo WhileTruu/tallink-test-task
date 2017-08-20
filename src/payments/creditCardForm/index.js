@@ -1,3 +1,5 @@
-import React from 'react';
+import reducer from './reducer';
+import * as actions from './actions';
 
-export default () => <div>creditCard</div>;
+export { reducer, actions };
+export { default } from './CreditcardForm';
