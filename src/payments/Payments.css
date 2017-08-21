@@ -1,18 +1,14 @@
 .ttt-payments-page {
   flex: 1;
   transition: background-color 1s;
+  z-index: 1;
 }
 
-.ttt-payments {
-  margin: 1rem;
-}
-
-.ttt-payment-methods {
+.ttt-payment-form {
   position: relative;
-  padding: 1rem;
   background-color: white;
   border-radius: 0 0.25rem 0.25rem 0.25rem;
-  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  //box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
 .bg-blue {
@@ -22,4 +18,8 @@
 
 .bg-white {
   background-color: white;
+}
+
+.ttt-payment-methods {
+  filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 }

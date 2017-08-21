@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800');
+
+@import 'variables.scss';
+
+// Core variables and mixins
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/custom";
+
+// Reset and dependencies
+@import "bootstrap/scss/normalize";
+@import "bootstrap/scss/print";
+
+// Core CSS
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/card";
+
+@import "bootstrap/scss/buttons";
+
+// Utility classes
+@import "bootstrap/scss/utilities";
+@import 'bootstrap/scss/mixins/_buttons.scss';
+
+$btn-shadow-color: rgb(0, 66, 127);
+
+.tab {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+button,
+.form-check-input {
+  cursor: pointer;
+}
+
+.input-default {
+  box-shadow: inset 0 0.1rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+button.btn-shadow {
+  box-shadow: 0 0.15rem 0 $btn-shadow-color, 0 0.25rem 0.1rem rgba(0, 0, 0, 0.25);
+  &:active {
+    transform: translateY(0.15rem);
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
+  }
+}

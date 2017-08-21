@@ -3,9 +3,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import CreditcardForm from './creditcardForm';
-import OnlineBanksForm from './onlineBanksForm';
 import Confirmation from './confirmation';
+import PaymentMethods from './paymentMethods';
+import Banner from '../common/banner';
 import { getOnlineBankInformation } from './actions';
 
 import './Payments.css';
@@ -20,10 +20,7 @@ class Payments extends Component {
     this.props.getOnlineBankInformation();
   }
   render() {
-    const { match, history } = this.props;
-    const onlineBanksTabIsActive = history.location.pathname.includes('onlinebanks');
-    const creditcardTabIsActive = history.location.pathname.includes('creditcard');
-
+    const { match, history, banks } = this.props;
     const pay = () => history.push(`${match.url}/confirmed`);
 
     return (
@@ -38,31 +35,33 @@ class Payments extends Component {
               <Confirmation />
             </Route>
             <Route>
-              <div>
-                <div className="tabs clearfix">
-                  <button
-                    className={`tab-link ${onlineBanksTabIsActive ? 'active' : 'inactive'}`}
-                    onClick={() => history.replace(`${match.url}/onlinebanks`)}
-                  >
-                    {strings.onlineBanks}
-                  </button>
-                  <button
-                    className={`tab-link ${creditcardTabIsActive ? 'active' : 'inactive'}`}
-                    onClick={() => history.replace(`${match.url}/creditcard`)}
-                  >
-                    {strings.creditCard}
-                  </button>
+              <div className="container mt-5">
+                <div className="row">
+                  <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                    <Banner>
+                      <div className="row h-100">
+                        <div className="col-8 col-md-10 banner-content">
+                          <h4 className="mb-0">CRUISE TALLINN-STOCKHOLM-TALLINN</h4>
+                        </div>
+                        <div className="col-4 col-md-2 text-right banner-content">
+                          <h2 className="mb-0">252€</h2>
+                        </div>
+                      </div>
+                    </Banner>
+                  </div>
                 </div>
-                <div className="ttt-payment-methods">
-                  <Switch>
-                    <Route path={`${match.url}/creditcard`}>
-                      <CreditcardForm pay={pay} />
-                    </Route>
-                    <Route path={`${match.url}/onlinebanks`}>
-                      <OnlineBanksForm banks={this.props.banks} pay={pay} />
-                    </Route>
-                    <Redirect to="/404" />
-                  </Switch>
+                <div className="container mt-5">
+                  <div className="row">
+                    <div className="ttt-payment-methods col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                      <PaymentMethods
+                        history={history}
+                        match={match}
+                        pay={pay}
+                        strings={strings}
+                        banks={banks}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Route>

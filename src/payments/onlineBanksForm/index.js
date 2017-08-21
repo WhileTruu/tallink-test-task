@@ -1,30 +1,29 @@
 import React from 'react';
 
-import './OnlineBanksForm.css';
-
 export default ({ banks, pay }) =>
-  <div className="ttt-online-banks-form text-left">
+  <div className="text-left col-12 py-4">
     <form>
-      <div className="ttt-online-banks">
+      <fieldset class="form-group">
+        <legend>Online banks</legend>
         {banks &&
           banks.map((bank, index) =>
-            <div className="form-group" key={bank.name}>
+            <div className="form-check" key={bank.name}>
               <input
-                className="ttt-online-banks-form radio-button"
+                className="form-check-input ml-0"
                 type="radio"
                 id={`bankChoice${index}`}
                 name="bank"
                 value={bank.name}
               />
-              <label htmlFor={`bankChoice${index}`}>
+              <label htmlFor={`bankChoice${index}`} className="form-check-label">
                 {bank.name}
               </label>
             </div>
           )}
-      </div>
+      </fieldset>
       <div className="text-center">
         <button
-          className="btn-default"
+          className="btn btn-primary btn-shadow"
           type="submit"
           onClick={event => {
             event.preventDefault();

@@ -4,27 +4,22 @@ import { connect } from 'react-redux';
 
 import * as actions from './actions';
 
-import './CreditcardForm.css';
-
 const CardNumberInput = () =>
-  <div className="">
-    <input
-      className="border-radius top"
-      style={{ width: '100%', boxSizing: 'border-box' }}
-      tabIndex="1"
-      id="card_number"
-      type="tel"
-      spellCheck="off"
-      autoCapitalize="off"
-      placeholder="Card number"
-    />
-  </div>;
+  <input
+    className="form-control"
+    tabIndex="1"
+    id="card_number"
+    type="tel"
+    spellCheck="off"
+    autoCapitalize="off"
+    placeholder="Card number"
+  />;
 
 export const CardExpiresInput = ({ changeExpiry, expiry }) =>
-  <div className="ttt-card-expiry-input-container">
+  <div className="">
     <input
       tabIndex="1"
-      className="border-radius bottom left ttt-card-expiry-input"
+      className="form-control"
       id="cc-exp"
       type="tel"
       value={expiry || ''}
@@ -37,42 +32,43 @@ export const CardExpiresInput = ({ changeExpiry, expiry }) =>
   </div>;
 
 export const CardCVCInput = ({ changeCVC, CVC }) =>
-  <div className="ttt-card-cvc-input-container">
-    <input
-      tabIndex="1"
-      className="border-radius bottom right ttt-card-cvc-input"
-      id="cc-csc"
-      type="tel"
-      value={CVC || ''}
-      onChange={event => changeCVC(event.target.value)}
-      autoComplete="off"
-      autoCorrect="off"
-      spellCheck="off"
-      autoCapitalize="off"
-      placeholder="CVC"
-      maxLength="4"
-    />
-  </div>;
+  <input
+    tabIndex="1"
+    className="form-control"
+    id="cc-csc"
+    type="tel"
+    value={CVC || ''}
+    onChange={event => changeCVC(event.target.value)}
+    autoComplete="off"
+    autoCorrect="off"
+    spellCheck="off"
+    autoCapitalize="off"
+    placeholder="CVC"
+    maxLength="4"
+  />;
 
 export const CreditcardForm = ({ changeCVC, CVC, changeExpiry, expiry }) =>
-  <div>
-    <div className="content">
-      <div className="">
-        <div className="">
-          <div className="form-group">
-            <CardNumberInput />
-            <CardExpiresInput changeExpiry={changeExpiry} expiry={expiry} />
-            <CardCVCInput changeCVC={changeCVC} CVC={CVC} />
-          </div>
+  <div className="col-12 py-4 text-left">
+    <form>
+      <legend>Creditcard</legend>
+
+      <div className="form-group">
+        <CardNumberInput />
+      </div>
+      <div className="form-group row">
+        <div className="col-6 pr-2">
+          <CardExpiresInput changeExpiry={changeExpiry} expiry={expiry} />
+        </div>
+        <div className="col-6 pl-2">
+          <CardCVCInput changeCVC={changeCVC} CVC={CVC} />
         </div>
       </div>
-    </div>
-
-    <div className="text-center">
-      <button className="btn-default" type="submit">
-        Pay
-      </button>
-    </div>
+      <div className="text-center">
+        <button className="btn btn-primary btn-shadow" type="submit">
+          Pay
+        </button>
+      </div>
+    </form>
   </div>;
 
 const mapStoreToProps = store => ({
