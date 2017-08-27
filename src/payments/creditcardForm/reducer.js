@@ -1,21 +1,27 @@
-import { CHANGE_CVC, CHANGE_EXPIRY } from './constants';
+import { CHANGE_CVC, CHANGE_EXPIRY, CHANGE_CREDITCARD_NUMBER } from './constants';
 
 const initialState = {
   CVC: null,
-  expiry: null
+  expiry: null,
+  creditcardNumber: null
 };
 
 export default function getOnlineBankInformation(state = initialState, action) {
   switch (action.type) {
     case CHANGE_CVC:
       return {
-        CVC: action.CVC,
-        expiry: state.expiry
+        ...state,
+        CVC: action.CVC
       };
     case CHANGE_EXPIRY:
       return {
-        CVC: state.CVC,
+        ...state,
         expiry: action.expiry
+      };
+    case CHANGE_CREDITCARD_NUMBER:
+      return {
+        ...state,
+        creditcardNumber: action.creditcardNumber
       };
     default:
       return state;

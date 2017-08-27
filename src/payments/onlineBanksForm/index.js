@@ -3,7 +3,7 @@ import React from 'react';
 export default ({ banks, pay }) =>
   <div className="text-left col-12 py-4">
     <form>
-      <fieldset class="form-group">
+      <fieldset className="form-group">
         <legend>Online banks</legend>
         {banks &&
           banks.map((bank, index) =>

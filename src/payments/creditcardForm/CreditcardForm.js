@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 import * as actions from './actions';
 
-const CardNumberInput = () =>
+export const CardNumberInput = ({ changeCreditcardNumber, creditcardNumber }) =>
   <input
     className="form-control"
     tabIndex="1"
-    id="card_number"
+    id="cc-number"
     type="tel"
+    value={creditcardNumber || ''}
+    onChange={event => changeCreditcardNumber(event.target.value)}
     spellCheck="off"
     autoCapitalize="off"
     placeholder="Card number"
@@ -47,13 +49,23 @@ export const CardCVCInput = ({ changeCVC, CVC }) =>
     maxLength="4"
   />;
 
-export const CreditcardForm = ({ changeCVC, CVC, changeExpiry, expiry }) =>
+export const CreditcardForm = ({
+  changeCVC,
+  CVC,
+  changeExpiry,
+  expiry,
+  changeCreditcardNumber,
+  creditcardNumber
+}) =>
   <div className="col-12 py-4 text-left">
     <form>
       <legend>Creditcard</legend>
 
       <div className="form-group">
-        <CardNumberInput />
+        <CardNumberInput
+          changeCreditcardNumber={changeCreditcardNumber}
+          creditcardNumber={creditcardNumber}
+        />
       </div>
       <div className="form-group row">
         <div className="col-6 pr-2">
@@ -72,6 +84,7 @@ export const CreditcardForm = ({ changeCVC, CVC, changeExpiry, expiry }) =>
   </div>;
 
 const mapStoreToProps = store => ({
+  creditcardNumber: store.creditcardForm.creditcardNumber,
   CVC: store.creditcardForm.CVC,
   expiry: store.creditcardForm.expiry
 });
@@ -80,7 +93,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       changeCVC: actions.changeCVC,
-      changeExpiry: actions.changeExpiry
+      changeExpiry: actions.changeExpiry,
+      changeCreditcardNumber: actions.changeCreditcardNumber
     },
     dispatch
   );

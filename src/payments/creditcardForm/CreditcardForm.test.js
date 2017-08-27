@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Redirect } from 'react-router-dom';
 
-import { CreditcardForm, CardCVCInput, CardExpiresInput } from './CreditcardForm';
+import { CreditcardForm, CardCVCInput, CardExpiresInput, CardNumberInput } from './CreditcardForm';
 
 describe('creditcard form', () => {
   beforeEach(() => {});
@@ -30,5 +30,18 @@ describe('creditcard form', () => {
     cardExpiresInputComponent.find('input#cc-exp').simulate('change', { target: { value } });
     expect(changeExpiry).toHaveBeenCalledTimes(1);
     expect(changeExpiry).toHaveBeenCalledWith(value);
+  });
+
+  it('calls function to change expiry date value when input value changed', () => {
+    const changeCreditcardNumber = jest.fn();
+    const value = '123131';
+    const cardNumberInput = shallow(<CardNumberInput />);
+
+    cardNumberInput.setProps({ changeCreditcardNumber, creditcardNumber: null });
+
+    expect(changeCreditcardNumber).not.toHaveBeenCalled();
+    cardNumberInput.find('input#cc-number').simulate('change', { target: { value } });
+    expect(changeCreditcardNumber).toHaveBeenCalledTimes(1);
+    expect(changeCreditcardNumber).toHaveBeenCalledWith(value);
   });
 });

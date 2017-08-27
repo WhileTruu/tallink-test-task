@@ -1,11 +1,9 @@
-import { CHANGE_CVC, CHANGE_EXPIRY } from './constants';
+import { CHANGE_CVC, CHANGE_EXPIRY, CHANGE_CREDITCARD_NUMBER } from './constants';
 
 /* Credit cards require much fancier checks than these simple ones provide. */
 
 export function changeCVC(value) {
-  return dispatch => {
-    dispatch({ type: CHANGE_CVC, CVC: formatCVC(value) });
-  };
+  return { type: CHANGE_CVC, CVC: formatCVC(value) };
 }
 
 function formatCVC(value) {
@@ -13,7 +11,7 @@ function formatCVC(value) {
 }
 
 export function changeExpiry(value) {
-  return dispatch => dispatch({ type: CHANGE_EXPIRY, expiry: formatExpiry(value) });
+  return { type: CHANGE_EXPIRY, expiry: formatExpiry(value) };
 }
 
 function formatExpiry(expiry) {
@@ -43,4 +41,12 @@ function formatExpiry(expiry) {
     month = '0' + month;
   }
   return month + separator + year;
+}
+
+export function changeCreditcardNumber(value) {
+  return { type: CHANGE_CREDITCARD_NUMBER, creditcardNumber: formatCreditcardNumber(value) };
+}
+
+function formatCreditcardNumber(value) {
+  return value.replace(/\D/g, '').slice(0, 16);
 }
