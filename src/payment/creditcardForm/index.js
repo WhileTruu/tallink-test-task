@@ -1,5 +1,5 @@
-import reducer from './reducer';
-import * as actions from './actions';
+import reducer from './reducer'
+import * as actions from './actions'
 
-export { reducer, actions };
-export { default } from './CreditcardForm';
+export { reducer, actions }
+export { default } from './CreditcardForm'

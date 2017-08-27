@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
 export default () =>
-  <div>
+  (<div>
     <h1>This page does not exist.</h1>
-  </div>;
+  </div>)

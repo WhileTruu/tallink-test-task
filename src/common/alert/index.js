@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 export default ({ children }) =>
-  <div>
+  (<div>
     <div className="alert alert-info">
-      {children}
+      { children }
     </div>
-  </div>;
+  </div>)

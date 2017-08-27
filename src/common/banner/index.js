@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import './Banner.css';
+import './Banner.css'
 
 export default ({ children }) =>
-  <div>
+  (<div>
     <div className="banner mb-1">
-      {children}
+      { children }
     </div>
-  </div>;
+  </div>)

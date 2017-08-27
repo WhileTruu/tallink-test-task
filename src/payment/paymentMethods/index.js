@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import CreditcardForm from '../creditcardForm'
 import OnlineBanksForm from '../onlineBanksForm'
 
-export default ({ pay, history, strings, banks }) => {
+export default ({ pay, history, strings, banks, isLoading }) => {
   const onlineBanksTabIsActive = history.location.pathname.includes('onlinebanks')
   const creditcardTabIsActive = history.location.pathname.includes('creditcard')
 
@@ -29,10 +29,10 @@ export default ({ pay, history, strings, banks }) => {
       <div className="ttt-payment-form">
         <Switch>
           <Route path="/reservation/:id/creditcard">
-            <CreditcardForm pay={pay} />
+            <CreditcardForm pay={pay} isLoading={isLoading} />
           </Route>
           <Route path="/reservation/:id/onlinebanks">
-            <OnlineBanksForm banks={banks} pay={pay} />
+            <OnlineBanksForm banks={banks} pay={pay} isLoading={isLoading} />
           </Route>
           <Redirect to="/404" />
         </Switch>

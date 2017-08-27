@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import './Header.css';
+import './Header.css'
 
 export default () =>
-  <div className="ttt-header">
+  (<div className="ttt-header">
     <h2>TALLINK SILJA LINE</h2>
-  </div>;
+  </div>)

@@ -1,13 +1,12 @@
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-import * as actions from './actions';
+import * as actions from './actions'
 
 export const CardNumberInput = ({ changeCreditcardNumber, creditcardNumber }) =>
-  <input
+  (<input
     className="form-control"
-    tabIndex="1"
     id="cc-number"
     type="tel"
     value={creditcardNumber || ''}
@@ -15,12 +14,11 @@ export const CardNumberInput = ({ changeCreditcardNumber, creditcardNumber }) =>
     spellCheck="off"
     autoCapitalize="off"
     placeholder="Card number"
-  />;
+  />)
 
 export const CardExpiresInput = ({ changeExpiry, expiry }) =>
-  <div className="">
+  (<div className="">
     <input
-      tabIndex="1"
       className="form-control"
       id="cc-exp"
       type="tel"
@@ -31,11 +29,10 @@ export const CardExpiresInput = ({ changeExpiry, expiry }) =>
       autoCapitalize="off"
       placeholder="MM / YY"
     />
-  </div>;
+  </div>)
 
 export const CardCVCInput = ({ changeCVC, CVC }) =>
-  <input
-    tabIndex="1"
+  (<input
     className="form-control"
     id="cc-csc"
     type="tel"
@@ -47,7 +44,7 @@ export const CardCVCInput = ({ changeCVC, CVC }) =>
     autoCapitalize="off"
     placeholder="CVC"
     maxLength="4"
-  />;
+  />)
 
 export const CreditcardForm = ({
   changeCVC,
@@ -55,9 +52,11 @@ export const CreditcardForm = ({
   changeExpiry,
   expiry,
   changeCreditcardNumber,
-  creditcardNumber
+  creditcardNumber,
+  pay,
+  isLoading,
 }) =>
-  <div className="col-12 py-4 text-left">
+  (<div className="col-12 py-4 text-left">
     <form>
       <legend>Creditcard</legend>
 
@@ -76,27 +75,35 @@ export const CreditcardForm = ({
         </div>
       </div>
       <div className="text-center">
-        <button className="btn btn-primary btn-shadow" type="submit">
-          Pay
+        <button
+          className={`btn btn-primary btn-shadow ${isLoading ? 'disabled' : ''}`}
+          type="submit"
+          disabled={isLoading}
+          onClick={(event) => {
+            event.preventDefault()
+            pay()
+          }}
+        >
+          { isLoading ? 'Loading...' : 'Pay' }
         </button>
       </div>
     </form>
-  </div>;
+  </div>)
 
 const mapStoreToProps = store => ({
   creditcardNumber: store.creditcardForm.creditcardNumber,
   CVC: store.creditcardForm.CVC,
-  expiry: store.creditcardForm.expiry
-});
+  expiry: store.creditcardForm.expiry,
+})
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       changeCVC: actions.changeCVC,
       changeExpiry: actions.changeExpiry,
-      changeCreditcardNumber: actions.changeCreditcardNumber
+      changeCreditcardNumber: actions.changeCreditcardNumber,
     },
-    dispatch
-  );
+    dispatch,
+  )
 
-export default connect(mapStoreToProps, mapDispatchToProps)(CreditcardForm);
+export default connect(mapStoreToProps, mapDispatchToProps)(CreditcardForm)

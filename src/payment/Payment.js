@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import PaymentMethods from './paymentMethods'
 import Banner from '../common/banner'
-import { getOnlineBankInformation } from './actions'
+import * as actions from './actions'
+import { api } from '../common'
 
 import './Payment.css'
 
@@ -18,8 +19,26 @@ class Payment extends Component {
     this.props.getOnlineBankInformation()
   }
   render() {
-    const { match, history, banks } = this.props
-    const pay = () => history.push('confirmed')
+    const {
+      match,
+      history,
+      banks,
+      makePayment,
+      makePaymentSuccess,
+      makePaymentError,
+      isLoading,
+    } = this.props
+
+    const pay = (details) => {
+      makePayment()
+      api
+        .payForReservation(details)
+        .then(() => {
+          makePaymentSuccess()
+          history.push('confirmed')
+        })
+        .catch(() => makePaymentError())
+    }
 
     return (
       <div className="container mt-5">
@@ -46,6 +65,7 @@ class Payment extends Component {
                 pay={pay}
                 strings={strings}
                 banks={banks}
+                isLoading={isLoading}
               />
             </div>
           </div>
@@ -57,12 +77,16 @@ class Payment extends Component {
 
 const mapStoreToProps = store => ({
   banks: store.payment.banks,
+  isLoading: store.payment.isLoading,
 })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      getOnlineBankInformation,
+      getOnlineBankInformation: actions.getOnlineBankInformation,
+      makePayment: actions.makePayment,
+      makePaymentError: actions.makePaymentError,
+      makePaymentSuccess: actions.makePaymentSuccess,
     },
     dispatch,
   )

@@ -1,7 +1,3 @@
 import React from 'react'
 
-export () => (
-  <div>
-    Loading...
-  </div>
-)
+export default () => <div>Loading...</div>
