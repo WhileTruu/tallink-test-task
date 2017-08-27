@@ -1,4 +1,6 @@
-import { combineReducers } from 'redux';
-import { reducer as payments } from './payments';
-import { reducer as creditcardForm } from './payments/creditcardForm';
-export default combineReducers({ payments, creditcardForm });
+import { combineReducers } from 'redux'
+import { reducer as payment } from './payment'
+import { reducer as reservation } from './reservation'
+import { reducer as creditcardForm } from './payment/creditcardForm'
+
+export default combineReducers({ payment, creditcardForm, reservation })

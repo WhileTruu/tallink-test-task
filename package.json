@@ -22,9 +22,40 @@
   "devDependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "enzyme": "^2.9.1",
+    "eslint": "^3.19.0 || ^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
     "react-scripts": "1.0.11",
     "react-test-renderer": "^15.6.1"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "max-len": 1,
+      "react/prop-types": 0,
+      "react/jsx-curly-spacing": [
+        2,
+        {
+          "when": "never",
+          "attributes": {
+            "allowMultiline": false
+          },
+          "children": {
+            "when": "always"
+          }
+        }
+      ],
+      "react/jsx-filename-extension": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/no-named-as-default": 0,
+      "semi": [2, "never"]
+    }
   }
 }

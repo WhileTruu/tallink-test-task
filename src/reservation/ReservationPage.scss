@@ -1,0 +1,15 @@
+.ttt-reservation-page {
+  flex: 1;
+  transition: background-color 1s;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-blue {
+  background-color: rgb(2, 106, 177);
+  background-image: radial-gradient(circle at center, rgb(85, 155, 217) 0, rgb(2, 106, 177) 100%);
+}
+
+.bg-white {
+  background-color: white;
+}

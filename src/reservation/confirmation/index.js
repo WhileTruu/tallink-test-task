@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import Alert from '../../common/alert';
+import Alert from '../../common/alert'
 
 export default () =>
-  <div>
+  (<div>
     <div className="container mt-5">
       <div className="row">
         <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
@@ -51,10 +51,9 @@ export default () =>
           <h5>Get confirmation (PDF) by email</h5>
 
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 className="form-control"
-                tabIndex="1"
                 id="email"
                 type="email"
                 spellCheck="off"
@@ -66,8 +65,8 @@ export default () =>
               <button
                 className="btn btn-primary btn-shadow mt-3"
                 type="submit"
-                onClick={event => {
-                  event.preventDefault();
+                onClick={(event) => {
+                  event.preventDefault()
                 }}
               >
                 Check In
@@ -77,4 +76,4 @@ export default () =>
         </div>
       </div>
     </div>
-  </div>;
+  </div>)
