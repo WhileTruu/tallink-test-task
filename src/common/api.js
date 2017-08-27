@@ -17,9 +17,7 @@ export function getOnlineBankInformation() {
   })
 }
 
-export function payForReservation(details = '') {
-  // eslint-disable-next-line no-console
-  console.log(details)
+export function payForReservation() {
   return new Promise((resolve) => {
     setTimeout(resolve, 1000)
   })

@@ -16,17 +16,20 @@ const strings = {
 
 class Payment extends Component {
   componentDidMount() {
-    this.props.getOnlineBankInformation()
+    if (!this.props.banks) this.props.getOnlineBankInformation()
   }
   render() {
     const {
       match,
       history,
       banks,
+      cost,
       makePayment,
       makePaymentSuccess,
       makePaymentError,
       isLoading,
+      changePaymentMethodToCreditCard,
+      changePaymentMethodToOnlineBanks,
     } = this.props
 
     const pay = (details) => {
@@ -50,7 +53,9 @@ class Payment extends Component {
                   <h4 className="mb-0">CRUISE TALLINN-STOCKHOLM-TALLINN</h4>
                 </div>
                 <div className="col-4 col-md-2 text-right banner-content">
-                  <h2 className="mb-0">252€</h2>
+                  <h2 className="mb-0">
+                    { cost }
+                  </h2>
                 </div>
               </div>
             </Banner>
@@ -66,6 +71,8 @@ class Payment extends Component {
                 strings={strings}
                 banks={banks}
                 isLoading={isLoading}
+                changePaymentMethodToCreditCard={changePaymentMethodToCreditCard}
+                changePaymentMethodToOnlineBanks={changePaymentMethodToOnlineBanks}
               />
             </div>
           </div>
@@ -78,6 +85,7 @@ class Payment extends Component {
 const mapStoreToProps = store => ({
   banks: store.payment.banks,
   isLoading: store.payment.isLoading,
+  cost: store.reservation.cost,
 })
 
 const mapDispatchToProps = dispatch =>
@@ -87,6 +95,8 @@ const mapDispatchToProps = dispatch =>
       makePayment: actions.makePayment,
       makePaymentError: actions.makePaymentError,
       makePaymentSuccess: actions.makePaymentSuccess,
+      changePaymentMethodToCreditCard: actions.changePaymentMethodToCreditCard,
+      changePaymentMethodToOnlineBanks: actions.changePaymentMethodToOnlineBanks,
     },
     dispatch,
   )

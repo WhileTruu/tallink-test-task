@@ -6,7 +6,7 @@ const initialState = {
   creditcardNumber: null,
 }
 
-export default function getOnlineBankInformation(state = initialState, action) {
+export default function creditcardForm(state = initialState, action) {
   switch (action.type) {
     case CHANGE_CVC:
       return {

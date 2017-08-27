@@ -4,7 +4,15 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import CreditcardForm from '../creditcardForm'
 import OnlineBanksForm from '../onlineBanksForm'
 
-export default ({ pay, history, strings, banks, isLoading }) => {
+export default ({
+  pay,
+  history,
+  strings,
+  banks,
+  isLoading,
+  changePaymentMethodToCreditCard,
+  changePaymentMethodToOnlineBanks,
+}) => {
   const onlineBanksTabIsActive = history.location.pathname.includes('onlinebanks')
   const creditcardTabIsActive = history.location.pathname.includes('creditcard')
 
@@ -13,14 +21,20 @@ export default ({ pay, history, strings, banks, isLoading }) => {
       <div className="tabs clearfix">
         <button
           className={`btn tab ${onlineBanksTabIsActive ? 'btn-secondary' : 'btn-primary'}`}
-          onClick={() => history.replace('onlinebanks')}
+          onClick={() => {
+            changePaymentMethodToOnlineBanks()
+            history.replace('onlinebanks')
+          }}
           style={{ float: 'left' }}
         >
           { strings.onlineBanks }
         </button>
         <button
           className={`btn tab ml-1 ${creditcardTabIsActive ? 'btn-secondary' : 'btn-primary'}`}
-          onClick={() => history.replace('creditcard')}
+          onClick={() => {
+            changePaymentMethodToCreditCard()
+            history.replace('creditcard')
+          }}
           style={{ float: 'left' }}
         >
           { strings.creditCard }

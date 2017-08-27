@@ -5,6 +5,8 @@ import {
   MAKE_PAYMENT,
   MAKE_PAYMENT_SUCCESS,
   MAKE_PAYMENT_ERROR,
+  CHANGE_PAYMENT_METHOD_TO_ONLINE_BANKS,
+  CHANGE_PAYMENT_METHOD_TO_CREDITCARD,
 } from './constants'
 import { api } from '../common'
 
@@ -31,4 +33,12 @@ export function makePaymentSuccess() {
 
 export function makePaymentError() {
   return { type: MAKE_PAYMENT_ERROR }
+}
+
+export function changePaymentMethodToCreditCard() {
+  return { type: CHANGE_PAYMENT_METHOD_TO_CREDITCARD }
+}
+
+export function changePaymentMethodToOnlineBanks() {
+  return { type: CHANGE_PAYMENT_METHOD_TO_ONLINE_BANKS }
 }

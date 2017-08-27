@@ -6,3 +6,9 @@ export const GET_ONLINE_BANK_INFORMATION_ERROR = withPrefix('GET_ONLINE_BANK_INF
 export const MAKE_PAYMENT = withPrefix('MAKE_PAYMENT')
 export const MAKE_PAYMENT_SUCCESS = withPrefix('MAKE_PAYMENT_SUCCESS')
 export const MAKE_PAYMENT_ERROR = withPrefix('MAKE_PAYMENT_ERROR')
+export const ONLINE_BANKS = 'onlinebanks'
+export const CREDITCARD = 'creditcard'
+export const CHANGE_PAYMENT_METHOD_TO_ONLINE_BANKS = withPrefix(
+  'CHANGE_PAYMENT_METHOD_TO_ONLINE_BANKS',
+)
+export const CHANGE_PAYMENT_METHOD_TO_CREDITCARD = withPrefix('CHANGE_PAYMENT_METHOD_TO_CREDITCARD')

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Confirmation from './confirmation'
@@ -34,6 +33,4 @@ const mapStoreToProps = store => ({
   reservationId: store.reservation.reservationId,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
-
-export default connect(mapStoreToProps, mapDispatchToProps)(ReservationPage)
+export default connect(mapStoreToProps)(ReservationPage)
